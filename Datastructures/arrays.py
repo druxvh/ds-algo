@@ -1,26 +1,59 @@
-new_list = [1,2,3]
+from array import *
+'''
+Python doesn't have inbuilt array datatype though we can import it to use it into our program.
 
-# To check whether the item is in the array (linear runtime)
-if 1 in new_list: print(True)
-    # or
-for n in new_list:
-    if n == 1:
-        print(True)
-        break
+- Collection of same type elements 
+- fixed size
+- indexed
 
-# Insert (linear runtime) -> iterates and forwards each element
+Python have better & efficient ways to handle data than array like its pre-defined class based datatype called 'List'.
+'''
 
-new_list.insert(3,4)
+#TypeCodes for arrays: (C type)
+#  Type code      C Type             Minimum size in bytes  
+#-------------------------------------------------------------
+#     'b'         signed integer     1  
+#     'B'         unsigned integer   1  
+#     'u'         Unicode character  2  
+#     'h'         signed integer     2  
+#     'H'         unsigned integer   2  
+#     'i'         signed integer     2  
+#     'I'         unsigned integer   2  
+#     'l'         signed integer     4  
+#     'L'         unsigned integer   4  
+#     'q'         signed integer     8 
+#     'Q'         unsigned integer   8   
+#     'f'         floating point     4  
+#     'd'         floating point     8
 
-# Append (constant time) -> simply adds the item into the end of the list and doesn't cost the runtime cost as in the Insert function.
+arr = array('i', [1,2,3,4,4,4,4,6,87,8])
 
-new_list.append(6)
+#Append
+arr.append(4)
 
-# Joining or extending a list
-new_list.extend([5,6,7,8,9])
+#count
+arr.count(4)
 
-# Deleting an item from a list (linear runtime)
-new_list.pop()
-new_list.remove()
+#extend
+arr.extend()
 
-print(new_list)
+#fromList
+arr.fromlist()
+
+#index
+arr.index()
+
+#insert
+arr.insert()
+
+#pop
+print(arr.pop())
+
+#remove
+arr.remove()
+
+#reverse
+arr.reverse()
+
+#toList
+arr.tolist()
