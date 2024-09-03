@@ -62,6 +62,23 @@ class LinkedList:
                 current = current.next_node
         return None
 
+    def insert_at_start(self, data):
+        new_node = Node(data)
+        new_node.next_node = self.head
+        self.head = new_node
+
+    def insert_at_last(self, data):
+        new_node = Node(data)
+
+        if not self.is_empty():
+            temp = self.head
+            while temp.next_node is not None:
+                temp = temp.next_node
+            temp.next_node = new_node
+        else:
+            self.head = new_node
+            
+
     def insert(self, data, index):
         '''
         Inserts a new Node containing data at the index postion
@@ -86,6 +103,10 @@ class LinkedList:
 
             prev_node.next_node = new_node
             new_node.next_node = next_node
+
+    def del_first(self):
+        if self.head is not None:
+            self.head = self.head.next_node
 
     def remove(self, key):
         '''
@@ -127,6 +148,7 @@ class LinkedList:
 
 
 
+'''
 
 linkedL = LinkedList()
 linkedL.add(1)
@@ -136,3 +158,5 @@ linkedL.add(4)
 linkedL.insert(22, 1)
 linkedL.remove(22)
 print(linkedL)
+
+'''
