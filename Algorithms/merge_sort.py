@@ -1,59 +1,30 @@
-def merge_sort(list):
-    '''
-    Sorts a list in an ascending order
-
-    Returns a new sorted list
-
-    Divide: Find the midpoint of the list and divide into sublists
-    Conquer: Recursively sort the sublists created in previous step
-    Combine: Merge the sorted sublists created in previous step
-    '''
-
-    if len(list) <= 1:
-        return list
+def mergesort(arr):
+    if len(arr) <= 1:
+        return arr
     
-    left_half, right_half = split(list)
-    left = merge_sort(left_half)
-    right = merge_sort(right_half)
-    return merge(left, right)
-
-def split(list):
-    '''
-    Divide the unsorted list at midpoint into sublists
-    Returns two sublists - left and right 
-    '''
-    mid = len(list) // 2
-    left = list[:mid]
-    right = list[mid:]
-    return left, right
+    m = len(arr) // 2
+    left = mergesort(arr[:m])
+    right = mergesort(arr[m:])
+    return merge(left,right)
 
 def merge(left, right):
-    '''
-    Merges two lists, sorting them in the progress
-    Returns a new merged list
-    '''
-
-    l = []
-    i = 0
-    j = 0
+    arr = []
+    i = j = 0
 
     while i < len(left) and j < len(right):
         if left[i] < right[j]:
-            l.append(left[i])
-            i+= 1
+            arr.append(left[i])
+            i += 1
         else:
-            l.append(right[j])
-            j+= 1
+            arr.append(right[j])
+            j += 1
         
-    while i < len(left):
-        l.append(left[i])
-        i+=1
+    arr.extend(left[i:])
+    arr.extend(right[j:])
 
-    while j < len(right):
-        l.append(right[j])
-        j+= 1
+    return arr
 
-    return l
-
-alist = [4,12,532,4552,123,1,3,5,2,0]
-print(merge_sort(alist))
+'''
+a = [5,1,4,2,3]
+print(mergesort(a))
+'''
